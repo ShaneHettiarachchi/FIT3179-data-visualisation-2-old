@@ -9,15 +9,32 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
 <body>
-  <h1>Victoria Bushfires</h1>
+  <h1>Victorian Bushfires</h1>
+
+  <h2>Number of fires in each type of forest</h2>
   
-  <div id="map"></div>
-  <div id="bars"></div>
+    <div id="map"></div>
+
+    <div id="paragraph"></div>
+
+
+    <h2>Number of fires in each type of forest</h2>
+
+    <div id="bar-chart"></div>
 
   <script>
     
     vegaEmbed('#map', 'Charts/Bushfiremap.json').catch(console.error);
 
+    vegaEmbed('#bar-chart', 'Charts/ForestCategoryBar.json').catch(console.error)
+
+
+    fetch('content/paragraph_one.txt')
+    .then(response => response.text())
+    .then(text => {
+      document.getElementById('paragraph').innerText = text;
+    })
+    .catch(error => console.error('Error loading paragraph:', error));
   </script>
 </body>
 </html>

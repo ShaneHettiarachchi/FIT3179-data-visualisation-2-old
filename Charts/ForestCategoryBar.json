@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Counts of each forest category",
+  "width": 500,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2/main/Data/Victorian_bushfire_data.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "FOR_CATEGO",
+      "type": "nominal",
+      "title": "Forest Category"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of Fires"
+    },
+    "color": {
+      "field": "FOR_CATEGO",
+      "type": "nominal",
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "FOR_CATEGO",
+        "type": "nominal",
+        "title": "Category"
+      },
+      {
+        "aggregate": "count",
+        "type": "quantitative",
+        "title": "Count"
+      }
+    ]
+  }
+}
