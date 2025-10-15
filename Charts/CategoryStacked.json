@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stacked bar chart showing burn type by forest category",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2/main/Data/Victorian_bushfire_data.csv"
+  },
+  "transform": [
+    {"filter": "datum.FOR_CATEGO != 'Non-forest'"},
+    {"filter": "datum.FOR_CATEGO != null"}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "FOR_CATEGO",
+      "type": "nominal",
+      "title": "Forest Category"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative",
+      "title": "Number of Fires"
+    },
+    "color": {
+      "field": "FOR_BURN_T",
+      "type": "nominal",
+      "title": "Burn Type",
+      "scale": {
+        "domain": ["Planned burns only", "Unplanned burns only","Planned and Unplanned burns", "Forest not burnt"],
+        "range": ["#1f77b4", "#ff7f0e", "#923702", "#2ca02c"]
+      }
+    },
+    "tooltip": [
+      {"field": "FOR_CATEGO", "type": "nominal", "title": "Forest Category"},
+      {"field": "FOR_BURN_T", "type": "nominal", "title": "Burn Type"},
+      {"aggregate": "count", "type": "quantitative", "title": "Count"}
+    ]
+  }
+}

@@ -22,19 +22,33 @@
 
     <div id="bar-chart"></div>
 
+    <h2>But what kind of fires?</h2>
+
+    <div id="stacked_chart"></div>
+
   <script>
     
+    //Map
     vegaEmbed('#map', 'Charts/Bushfiremap.json').catch(console.error);
 
+
+    //Bar Chart
     vegaEmbed('#bar-chart', 'Charts/ForestCategoryBar.json').catch(console.error)
 
-
+    //Paragraph 1
     fetch('content/paragraph_one.txt')
     .then(response => response.text())
     .then(text => {
       document.getElementById('paragraph').innerText = text;
     })
     .catch(error => console.error('Error loading paragraph:', error));
+
+    //Stacked bar
+    vegaEmbed('#stacked_chart', 'Charts/CategoryStacked.json')
+    .then(function(result) {
+      console.log("Stacked chart loaded successfully");
+    })
+    .catch(console.error);
   </script>
 </body>
 </html>
