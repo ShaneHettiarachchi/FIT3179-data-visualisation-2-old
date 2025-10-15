@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Bushfires in Victoria with Victoria outline",
+  "width": 600,
+  "height": 600,
+  "projection": {"type": "mercator"},
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ShaneHettiarachchi/FIT3179-data-visualisation-2/main/Data/Victoria_outline.topojson",
+        "format": {"type": "topojson", "feature": "Victoria_outline"} 
+      },
+      "mark": {"type": "geoshape", "fill": "#bacfc9", "stroke": "#000000", "strokeWidth": 0.7}
+    },
+    {
+      "data": {
+        "url": "Data/Victoria_bushfires_simplified.topojson",
+        "format": {"type": "topojson", "feature": "Victoria_bushfires"}
+      },
+      "mark": {"type": "geoshape","fill": "#faaa4e", "stroke": "#923702", "strokeWidth": 0.3},
+      "encoding": {
+        "color": {"field": "fire_name", "type": "nominal"},
+        "tooltip": [
+          {"field": "properties.fire_name", "title": "Fire Name"}
+        ]
+      }
+    }
+  ]
+}
