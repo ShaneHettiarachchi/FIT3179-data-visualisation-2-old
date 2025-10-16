@@ -15,7 +15,7 @@
   
     <div id="map"></div>
 
-    <div id="paragraph"></div>
+    <h4>Bushfires are a recurring natural hazard in Victoria, impacting both the environment and communities. Each year, dry conditions and high temperatures increase the likelihood of fires igniting and spreading rapidly. Forested areas, particularly those with dense vegetation, are most vulnerable, while grasslands can carry flames across the landscape at high speed. Bushfires threaten wildlife habitats, destroy vegetation, and release large amounts of carbon into the atmosphere. Fire management strategies include controlled burns, community education, and rapid emergency response. Understanding the patterns and causes of bushfires is essential for protecting lives, property, and biodiversity in the region.</h4>
 
 
     <h2>Number of fires in each type of forest</h2>
@@ -26,7 +26,7 @@
 
     <div id="stacked_chart"></div>
 
-    <div id="paragraph_two"></div>
+    <h4>This stacked bar chart highlights the relationship between burn type and forest category across Victoria’s landscapes. It visually compares how much of each forest type experienced planned burns, unplanned burns, or remained unburnt. By stacking the bars, we can easily see the proportion of each burn type within every forest category, revealing key differences in fire management and exposure. For example, native forests may show higher rates of unplanned burns, while commercial plantations could have more planned fire activity. This visualization provides a clear overview of how various landscapes interact with fire, helping identify patterns for future land management.</h4>
 
   <script>
     
@@ -37,21 +37,6 @@
     //Bar Chart
     vegaEmbed('#bar-chart', 'Charts/ForestCategoryBar.json').catch(console.error)
 
-    //Paragraph 1
-    fetch('content/paragraph_one.txt')
-    .then(response => response.text())
-    .then(text => {
-      document.getElementById('paragraph').innerText = text;
-    })
-    .catch(error => console.error('Error loading paragraph:', error));
-
-    //Paragraph 2
-    fetch('content/paragraph_two.txt')
-    .then(response => response.text())
-    .then(text => {
-      document.getElementById('paragraph_two').innerText = text;
-    })
-    .catch(error => console.error('Error loading paragraph:', error));
 
     //Stacked bar
     vegaEmbed('#stacked_chart', 'Charts/CategoryStacked.json')
