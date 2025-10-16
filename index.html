@@ -38,7 +38,7 @@
     vegaEmbed('#bar-chart', 'Charts/ForestCategoryBar.json').catch(console.error)
 
     //Paragraph 1
-    fetch('content/paragraph_one.txt')
+    fetch('Content/Paragraph_one.txt')
     .then(response => response.text())
     .then(text => {
       document.getElementById('paragraph').innerText = text;
@@ -46,7 +46,7 @@
     .catch(error => console.error('Error loading paragraph:', error));
 
     //Paragraph 2
-    fetch('content/paragraph_two.txt')
+    fetch('Content/Paragraph_two.txt')
     .then(response => response.text())
     .then(text => {
       document.getElementById('paragraph_two').innerText = text;
